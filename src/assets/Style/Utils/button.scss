@@ -1,0 +1,24 @@
+@use "./color.scss" as bg;
+@use "./animation.scss" as animation;
+
+@mixin btn_style($padding: 10px 50px) {
+    background-color: bg.$primary_color;
+    color: bg.$neutral_color;
+    text-align: center;
+    text-decoration: none;
+    text-transform: capitalize;
+    padding: $padding;
+    border-radius: 5px;
+    font-family: semibold_font;
+    cursor: pointer;
+
+    &:hover {
+        background-color: bg.$accent_color;
+        color: bg.$primary_color;
+        transform: scale(1.02);
+        font-family: bold_font;
+        animation-play-state: paused;
+    }
+
+    @content;
+}

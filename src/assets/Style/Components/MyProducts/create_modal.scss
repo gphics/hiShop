@@ -1,0 +1,113 @@
+@use "../../Utils/animation.scss" as animate;
+@use "../../Utils/color.scss" as bg;
+@use "../../Utils/flex.scss" as flex;
+@use "../../Utils/button.scss" as btn;
+
+// vontainer for the form and it serves as an overlay
+.product_create_modal {
+    flex: 0 0 auto;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background-color: #bbb7b7dc;
+    top: 0;
+
+    @include flex.flex_column {
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
+
+// hiding the modal
+.hide_product_create_modal {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    transform: translateY(-100vh)
+}
+
+// styling the form
+.create_product_form {
+    width: 95%;
+    height: 80%;
+    background-color: bg.$accent_color;
+    border-radius: 5px;
+
+    @include flex.flex_column {
+        align-items: center;
+        justify-content: center;
+    }
+    header{
+        width:80%;
+        height:7%;
+        margin-bottom:1%;
+        h2{
+            height: 100%;
+            width:100%;
+            text-align: center;
+            text-transform: capitalize;
+        }
+    }
+
+
+
+}
+
+// styling each sections in the form
+.first_product_create_section,
+.second_product_create_section {
+    width: 80%;
+    height: 50%;
+    flex: 0 0 auto;
+    @include flex.flex_column;
+
+    .last_create_part {
+        justify-content: flex-start;
+
+        label {
+            height: 16%;
+            margin-bottom: 1%;
+        }
+
+        textarea {
+            flex: 1 1 auto;
+            border-radius: 5px;
+            color: bg.$neutral_color;
+            background-color: bg.$primary_color;
+            border: 0;
+            padding: 5px 0 0 5px
+        }
+    }
+}
+
+// class for hiding sections inside the form
+.hide_product_create_form_section {
+    width: 0;
+    height: 0;
+    transform: translate(-100vw);
+    opacity: 0;
+}
+
+.create_modal_btn_holder {
+    height: 10%;
+    width: 70%;
+    @include flex.flex_row {
+        justify-content: center;
+    }
+
+    button {
+        @include btn.btn_style;
+        height: 70%;
+        border: 0;
+        margin: 5px;
+
+        &:hover {
+            background-color: bg.$neutral_color;
+            color: bg.$primary_color
+        }
+    }
+
+}

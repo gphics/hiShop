@@ -1,0 +1,24 @@
+@use "../../Utils/button.scss" as btn;
+@use "../../Utils/color.scss" as bg;
+@use "../../Utils/flex.scss" as flex;
+
+.reg_hero{
+    width:48%;
+    height: 100%;
+    @include flex.flex_row{
+        align-items: center;
+        justify-content: center;
+    }
+    // background-color: red;
+    overflow: hidden;
+    img{
+        width:95%;
+        max-height: 90%;
+        &:hover{
+            transform: scale(1.04);
+        }
+    }
+    @media (max-width:800px){
+        display: none;
+    }
+}

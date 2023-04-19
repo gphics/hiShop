@@ -1,0 +1,52 @@
+@use "../../Utils/color.scss" as bg;
+@use "../../Utils/flex.scss" as flex;
+@use "../../Utils/animation.scss" as animation;
+
+.loading {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: bg.$overlay_color;
+
+    @include flex.flex_column {
+        justify-content: center;
+        align-items: center;
+    }
+
+
+}
+
+
+
+.holder {
+    width: 50px;
+    height: 50px;
+    background-color: bg.$primary_color;
+    position: relative;
+
+    @include flex.flex_row {
+        justify-content: center;
+        align-items: center;
+    }
+    overflow: visible;
+    border-radius: 5px;
+
+}
+
+.round{
+    border-radius: 100%;
+    width:30%;
+    height: 30%;
+  
+    @include animation.animation_setter("round", 1s, infinite){
+        @keyframes round {
+            70%{
+                transform: scale(3);
+                background-color: bg.$accent_color;
+            }
+        }
+    }
+}

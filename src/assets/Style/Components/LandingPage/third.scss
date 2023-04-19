@@ -1,0 +1,64 @@
+@use "../../Utils/button.scss" as btn;
+@use "../../Utils/color.scss" as bg;
+@use "../../Utils/flex.scss" as flex;
+
+.third_landing_page_component{
+    width:100%;
+    height:300px;
+
+    @include flex.flex_column;
+
+    header{
+        width: 100%;
+        height: 10%;
+        h3{
+            text-align: center;
+            text-decoration: underline;
+            text-decoration-thickness: 5px;
+        }
+        margin-bottom: 5px;
+    }
+    .card_holder{
+        margin-top: 10px;
+        width:100%;
+        height: 78%;
+        @include flex.flex_row{
+            justify-content: space-around;
+        }
+        .service_card{
+            height: 80%;
+            width:22%;
+            background-color: bg.$accent_color;
+            border-radius: 5px;
+            @include flex.flex_column{
+                justify-content: center;
+                align-items: center;
+            }
+            .icon{
+                transform: scale(3);
+                margin-bottom: 15%;
+            }
+            h4{
+                text-align: center;
+            }
+            &:hover{
+                transform: scale(1.05);
+            }
+        }
+
+    }
+
+    @media (max-width:700px){
+        height: 500px;
+        .card_holder{
+            flex: 1 1 auto;
+            flex-direction: column;
+            align-items: center;
+            .service_card{
+                margin: auto;
+                height: 30%;
+                width:85%
+            }
+        }
+    }
+}

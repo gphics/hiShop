@@ -1,0 +1,97 @@
+@use "../../Utils/button.scss" as btn;
+@use "../../Utils/color.scss" as bg;
+@use "../../Utils/flex.scss" as flex;
+
+.second_landing_page_component {
+    width: 100%;
+    margin: 20px 0;
+    @include flex.flex_column;
+    header {
+        width: 100%;
+        margin: 5px 0;
+        height: 40px;
+
+        h2 {
+            color: bg.$primary_color;
+
+            text-align: center;
+            text-decoration: underline;
+            text-decoration-thickness: 5px;
+        }
+    }
+
+
+}
+
+.trending_products {
+    @include flex.flex_row {
+        justify-content: space-between
+    }
+
+    ;
+    overflow: hidden;
+    width:100%;
+    height:300px;
+    margin: 5px 0 5px 6%;
+
+    .item_info {
+        width: 45%;
+        height: 100%;
+
+        @include flex.flex_column {
+            justify-content: center;
+        }
+
+        h4 {
+            width: max-content;
+            background-color: bg.$accent_color;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        p {
+            margin-top: 10px;
+            font-family: regular_font;
+            width: 100%;
+        }
+    }
+
+    .trending_products_images {
+        width: 45%;
+        height: 90%;
+        margin-right: 7%;
+        align-self: center;
+    }
+
+    @media (max-width:800px){
+        flex-direction: column;
+        // background-color: red;
+        height: 500px;
+
+        .item_info{
+            width:90%;
+            height: 45%;
+            h4{
+                margin: 0;
+            }
+            p{
+                font-size: .9em;
+            }
+        }
+
+        .trending_products_images{
+            height:45%;
+            width:40%
+            // transform: scale(1.2);
+        }
+    }
+    @media (max-width:500px){
+        .trending_products_images{
+            width:70%
+        }
+    }
+    &:hover{
+        transform: scale(1.02);
+    }
+}
+

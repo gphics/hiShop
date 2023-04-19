@@ -1,0 +1,47 @@
+@use "../Utils/flex.scss" as flex;
+@use "../Utils/color.scss" as bg;
+@use "../Utils/button.scss" as btn;
+@use "../Utils/animation.scss" as animation;
+.error_page {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    @include flex.flex_column {
+        justify-content: center;
+        align-items: center;
+    }
+
+    img {
+        width: 95%;
+       &:hover{
+        transform: scale(1.02);
+       }
+        @media (min-width:900px){
+            height: 80%;
+        }
+    }
+
+    div {
+        margin-top: 3%;
+        height: 10%;
+        width: 95%;
+
+        @include flex.flex_column {
+            justify-content: center;
+            align-items: center;
+        };
+        .error_page_link{
+            @include btn.btn_style;
+            @include animation.animation_setter("btn_shake", .2s, 2) {
+                    @keyframes btn_shake {
+                        50% {
+                            transform: rotate(10deg);
+                            box-shadow: 2px 2px 25px 2px rgb(177, 174, 174),
+                                -2px -2px 25px 2px rgb(128, 126, 126)
+                        }
+                    }
+                }
+        }
+
+    }
+}

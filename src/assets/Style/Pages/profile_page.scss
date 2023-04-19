@@ -1,0 +1,135 @@
+@use "../Utils/button.scss" as btn;
+@use "../Utils/color.scss" as bg;
+@use "../Utils/flex.scss" as flex;
+
+.profile_page {
+    height: 100%;
+    flex: 1 1 auto;
+    main {
+        height: 100%;
+        width: 100%;
+        overflow-y: scroll;
+        @include flex.flex_column;
+    }
+}
+
+.profile_page_header {
+    width: 100%;
+flex: 0 0 auto;
+    @include flex.flex_column {
+        justify-content: center;
+        align-items: center
+    }
+
+    ;
+    height:350px;
+    // background-color: red;
+    margin:2% 0;
+
+    // styling all h4 in the header
+    h4 {
+        text-transform: capitalize;
+        margin-bottom: 1%;
+        width: 80%;
+        text-align: center
+    }
+
+    ;
+
+    // styling image holder
+    .image_holder {
+        &:hover {
+            transform: scale(1.02);
+        }
+
+        ;
+        height: 80%;
+        // background-color: aqua;
+        width: 80%;
+        position: relative;
+
+        @include flex.flex_column {
+            justify-content: center;
+            align-items: center
+        }
+
+        ;
+
+        img {
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+            border: 7px solid bg.$primary_color;
+            // border-bottom-color: transparent;
+        }
+
+        .profile_update_btn {
+            background-color: bg.$primary_color;
+            position: absolute;
+            width: 40px;
+            top: 77%;
+            height: 40px;
+            border-radius: 100%;
+
+            @include flex.flex_column {
+                justify-content: center;
+                align-items: center
+            }
+
+            ;
+
+            .icon {
+                transform: scale(2);
+                fill: bg.$accent_color;
+            }
+        }
+    }
+}
+
+.profile_page_info {
+    width: 100%;
+    flex: 0 0 auto;
+    height: 400px;
+    @include flex.flex_column {
+        justify-content: space-evenly;
+        align-items: center
+    }
+
+    .each_profile_info {
+        width: 80%;
+        height: 18%;
+        background-color: bg.$primary_color;
+        color: bg.$neutral_color;
+        padding-left: 2%;
+        border-radius: 5px;
+        @include flex.flex_column {
+            justify-content: space-evenly;
+        }
+
+        h5 {
+            width: 100%;
+            text-transform: capitalize;
+
+            .icon {
+                transform: scale(1.4);
+                margin-right: 2%;
+                fill: bg.$accent_color
+            }
+
+            @include flex.flex_row {
+                flex-direction: row-reverse;
+                justify-content: flex-end;
+            }
+        }
+
+        &:hover {
+            transform: scale(1.02);
+        }
+        @media (max-width:800px){
+            width:90%;
+            h4{
+                font-size: .8em;
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+@use "../../Utils/button.scss" as btn;
+@use "../../Utils/color.scss" as bg;
+@use "../../Utils/flex.scss" as flex;
+
+.fourth_landing_page_component{
+    width:100%;
+    height: 30px;
+    background-color: bg.$primary_color;
+    h5{
+        color:bg.$neutral_color;
+        text-align: center;
+    }
+}

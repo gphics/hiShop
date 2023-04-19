@@ -1,0 +1,14 @@
+@use "../Utils/flex.scss" as flex;
+@use "../Utils/color.scss" as bg;
+@use "../Utils/button.scss" as btn;
+
+
+.dashboard_page {
+    flex: 1 1 auto;
+    overflow-y: scroll;
+
+    main {
+        flex: 1 1 auto;
+        margin-top: 80px;
+    }
+}

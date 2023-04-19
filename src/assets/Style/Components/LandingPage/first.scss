@@ -1,0 +1,120 @@
+@use "../../Utils/button.scss" as btn;
+@use "../../Utils/color.scss" as bg;
+@use "../../Utils/flex.scss" as flex;
+
+
+.first_landing_page_component {
+    width: 100%;
+    height: 300px;
+
+    @include flex.flex_row {
+        justify-content: center;
+    }
+
+    // styling image
+    img {
+        width: 50%;
+        height: 60%;
+        margin: auto;
+    }
+
+    // styling article
+    article {
+        flex: 1 1 auto;
+        width: 45%;
+        height: 100%;
+        font-family: extra_bold_font;
+
+        @include flex.flex_column {
+            justify-content: center;
+            align-items: center;
+        }
+
+        // h2 {
+        //     width: 65%;
+        //     height: 12%;
+        //     padding: 0 5px;
+        //     background-color: bg.$accent_color;
+        //     margin-right: 15%;
+        //     text-align: left;
+        //     padding: 3px 0;
+
+
+        // }
+        .intro_header {
+            width: 80%;
+            height: 15%;
+
+            padding: 5px;
+
+            h2 {
+                background-color: bg.$primary_color;
+                width: max-content;
+                padding: 5px;
+                color: bg.$neutral_color
+            }
+        }
+
+        p {
+            margin: 2% 0;
+            width: 80%;
+            height: 22%;
+            padding-left: 5px;
+
+            a {
+                color: bg.$primary_color;
+                text-decoration: none;
+                text-transform: capitalize;
+                padding: 0 5px;
+                background-color: bg.$accent_color;
+
+                &:hover {
+                    background-color: bg.$primary_color;
+                    color: white
+                }
+            }
+        }
+    }
+
+    .link_holder {
+        height: 30%;
+        width: 80%;
+        padding: 25px 10px 0 ;
+
+        .article_link {
+            @include btn.btn_style;
+            
+        }
+    }
+
+    @media (max-width:800px) {
+        flex-direction: column;
+        height: 400px;
+
+        img {
+            width: 90%;
+            height: 45%;
+        }
+
+        article {
+            justify-content: space-between;
+            align-items: flex-start;
+            height: 45%;
+            width: 100%;
+            margin-left: 2%;
+
+            .intro_header {
+                height: 25%;
+
+            }
+
+            p {
+                height: 30%;
+                padding-left: 10px;
+            }
+
+         
+
+        }
+    }
+}

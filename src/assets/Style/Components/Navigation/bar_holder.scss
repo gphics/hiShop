@@ -1,0 +1,32 @@
+@use "../../Utils/animation.scss" as animate;
+@use "../../Utils/color.scss" as bg;
+@use "../../Utils/flex.scss" as flex;
+
+
+.bar_holder {
+    width: 100%;
+    height: 70px;
+    background-color: bg.$primary_color;
+    flex: 0 0 auto;
+    position: fixed;
+    box-shadow: 1px 1px 10px #EFEFEF;
+    z-index: 9;
+
+    @include flex.flex_row {
+        justify-content: space-between;
+        padding: 0 3%;
+        align-items: center;
+    }
+
+    .cart_btn,
+    .menu_btn {
+        fill: bg.$accent_color;
+        transform: scale(1.5);
+        cursor: pointer;
+
+        &:hover {
+            fill: bg.$neutral_color;
+            transform: scale(1.56);
+        }
+    }
+}

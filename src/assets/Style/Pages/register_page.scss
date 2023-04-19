@@ -1,0 +1,16 @@
+@use "../Utils/button.scss" as btn;
+@use "../Utils/color.scss" as bg;
+@use "../Utils/flex.scss" as flex;
+@import "../Components/Register/reg_form.scss";
+@import "../Components/Register/reg_hero.scss";
+
+
+.register_page{
+    width:100%;
+    margin-top: 80px;
+    height: 89.5vh;
+    @include flex.flex_row{
+        justify-content: space-between;
+    }
+  
+}

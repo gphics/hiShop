@@ -1,0 +1,62 @@
+@use "../../Utils/button.scss" as btn;
+@use "../../Utils/color.scss" as bg;
+@use "../../Utils/flex.scss" as flex;
+
+
+.each_input{
+    margin-bottom: 1%;
+    flex: 1 1 auto;
+    width:90%;
+    height: clamp(50px, 17%, 80px);
+    @include flex.flex_column{
+        justify-content: space-between;
+    }
+    label{
+        text-transform: capitalize;
+        height:40%;
+        display: block;
+        @media (max-width:800px){
+            height: 30%;
+            font-size: .9em;
+        }
+    }
+    .input_holder{
+        width:100%;
+        height: 55%;
+        margin-top: 1%;
+        flex:1 1 auto;
+        background-color: bg.$primary_color;
+        border-radius: 5px;
+        @include flex.flex_row{
+            justify-content: space-between;
+            align-items: center;
+        };
+        &:hover{
+            transform: scale(1.02);
+        }
+        input{
+            height: 100%;
+            width:92%;
+            border: 0;
+            outline: none;
+            background-color: transparent;
+            color:bg.$neutral_color;
+            padding-left: 2%;
+            &:focus{
+                transform: scale(1.01);
+            }
+        }
+        .input_icon{
+            // flex:1 1 auto;
+            cursor: pointer;
+            transform: scale(2);
+            fill:bg.$accent_color;
+            margin-right: 2%;
+            z-index: 666;
+            @media (max-width:800px){
+                margin-right: 2%;
+                transform: scale(1.3);
+            }
+        }
+    }
+}

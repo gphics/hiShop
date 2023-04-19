@@ -4,8 +4,8 @@ import { transaction } from "./utils";
 const initialState: transaction = {
     id:"",
   productId: "",
-  sellerId: "",
-  buyerId: "",
+  seller: "",
+  buyer: "",
   price: "",
   quantity: "",
 };

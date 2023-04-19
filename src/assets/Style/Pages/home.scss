@@ -1,0 +1,21 @@
+@use "../Utils/button.scss" as btn;
+@use "../Utils/color.scss" as bg;
+@use "../Utils/flex.scss" as flex;
+@import '../Components/Navigation/secondary_nav.scss';
+@import "../Components/LandingPage/main.scss";
+
+// holder for all pages in the landing page
+.home_page_holder{
+    width:100vw;
+
+    @include flex.flex_column;
+    background-color: bg.$neutral_color;
+    overflow-x: hidden;
+} 
+
+.home_page{
+    width:100%;
+    margin-top:70px;
+    @include flex.flex_column;
+        overflow: hidden;
+}

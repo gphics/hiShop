@@ -1,0 +1,15 @@
+@use "../Utils/button.scss" as btn;
+@use "../Utils/color.scss" as bg;
+@use "../Utils/flex.scss" as flex;
+@import "../Components/MyProducts/main.scss";
+.my_products_page {
+    flex: 1 1 auto;
+    @include flex.flex_column;
+
+    main {
+        width: 100%;
+        margin-top: 80px;
+        @include flex.flex_column;
+        overflow-y: scroll;
+    }
+}

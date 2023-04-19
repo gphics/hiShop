@@ -1,0 +1,88 @@
+@use "../Utils/flex.scss" as flex;
+@use "../Utils/color.scss" as bg;
+@use "../Utils/button.scss" as btn;
+
+.profile_update_page {
+    flex: 1 1 auto;
+    @include flex.flex_column;
+
+
+}
+
+.profile_update_form {
+
+    height: 90%;
+    flex: 1 1 auto;
+
+    @include flex.flex_column {
+        align-items: center;
+        justify-content: center
+    }
+
+    ;
+}
+
+.profile_update_header {
+    width: 80%;
+    height: 7%;
+    margin-bottom: 2%;
+
+    h3 {
+        text-transform: capitalize;
+        text-align: center;
+
+    }
+         @media (max-width:800px) {
+    
+             width: 95%;
+    
+    
+         }
+
+}
+
+.each_profile_update_part {
+    width: 80%;
+    height: 50%;
+
+    // background-color: red;
+    @include flex.flex_column {
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    @media (max-width:800px) {
+
+        width: 95%;
+
+
+    }
+}
+
+#img_profile_update_input_holder {
+    justify-content: flex-start;
+
+}
+
+.profile_update_form_footer {
+    width: 80%;
+    height: 10%;
+    margin-top: 2%;
+
+    @include flex.flex_row {
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    button {
+        @include btn.btn_style;
+        border: 0;
+    }
+
+    @media (max-width:800px) {
+
+        width: 90%;
+
+
+    }
+}

@@ -1,0 +1,18 @@
+@use "../Utils/flex.scss" as flex;
+@import "./error_page.scss";
+@import "./home.scss";
+@import "./register_page.scss";
+@import "../Components/Input/input.scss";
+@import "./login_page.scss";
+@import "./update_profile.scss";
+@import "../Components/Navigation/primary_nav.scss";
+@import "./dashboard_page.scss";
+@import "./profile_page.scss";
+@import "./my_products_page.scss";
+
+.main_app_container {
+    width: 100vw;
+    height: 100vh;
+    @include flex.flex_row;
+    overflow: hidden;
+}

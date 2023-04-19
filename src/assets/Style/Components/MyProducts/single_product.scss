@@ -1,0 +1,239 @@
+@use "../../Utils/animation.scss" as animate;
+@use "../../Utils/color.scss" as bg;
+@use "../../Utils/flex.scss" as flex;
+@use "../../Utils/button.scss" as btn;
+
+
+.single_product {
+    flex: 1 1 auto;
+    @include flex.flex_column;
+
+    & main {
+        margin-top: 80px;
+
+        @include flex.flex_row {
+            justify-content: space-between;
+        }
+
+        ;
+        overflow-y: scroll;
+
+        .gallery_holder,
+        .single_product_info {
+            width: 48%;
+            height: calc(100vh - 90px);
+        }
+
+        @media (max-width:800px) {
+            flex-direction: column;
+            align-items: center;
+
+            .gallery_holder,
+            .single_product_info {
+                width: 98%;
+                height: 400px;
+            }
+        }
+    }
+}
+
+.gallery_holder {
+    align-self: center;
+    flex: 0 0 auto;
+
+    @media (max-width:600px) {
+        width: 90%;
+    }
+
+    & .gallery_component {
+        width: 100%;
+        height: 100%;
+
+        @include flex.flex_column {
+            justify-content: center;
+            align-items: center
+        }
+
+        ;
+
+        // all image holder
+        & .main_img {
+            margin-bottom: 2%;
+            width: clamp(200px, 300px, 100%);
+            height: clamp(200px, 300px, 100%);
+
+            &:hover {
+                transform: scale(1.05);
+            }
+
+            @include flex.flex_row {
+                justify-content: center;
+                align-items: center
+            }
+
+            ;
+            overflow: hidden;
+
+            & img {
+                opacity: 0;
+                width: 0;
+                height: 0;
+                flex: 0 0 auto;
+                transform: translateY(-200%);
+            }
+
+            & .active_img {
+                width: 100%;
+                height: 100%;
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        // image control
+        .img_control {
+            height: clamp(15%, max-content, 20%);
+            width: 50%;
+
+            @include flex.flex_row {
+                justify-content: center;
+                align-items: center;
+            }
+
+            button {
+                width: 30px;
+                height: 30px;
+                margin-right: 15px;
+                border: 0;
+                border-radius: 5px;
+                font-size: 1.5em;
+                text-align: center;
+                background-color: bg.$accent_color;
+                color: bg.$primary_color;
+
+                &:hover {
+                    transform: scale(1.08);
+                }
+            }
+        }
+    }
+}
+
+.single_product_info {
+    flex: 0 0 auto;
+    height: 500px;
+    margin-top: 5px;
+
+    @include flex.flex_column {
+        align-items: center;
+
+        @media (min-width:800px) {
+            justify-content: center
+        }
+    }
+
+    ;
+
+    & header {
+        width: 98%;
+        height: clamp(20%, max-content, 20%);
+        text-transform: capitalize;
+
+        @include flex.flex_column;
+
+        h3 {
+            height: max-content;
+            width: 100%;
+        }
+
+        h5 {
+            height: max-content;
+            width: 100%;
+
+            &:last-of-type {
+                text-transform: lowercase;
+                font-style: italic;
+            }
+        }
+    }
+
+    & article {
+        width: 98%;
+        margin: 2% 0;
+        height: clamp(30%, max-content, 60%);
+        overflow: hidden;
+
+        p {
+            width: 100%;
+            height: 100%;
+
+            &::first-letter {
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    & footer {
+        width: 98%;
+        height: 35%;
+        @include flex.flex_column;
+        padding: 5px;
+
+        & aside {
+            width: 100%;
+            height: 70%;
+            margin-bottom: 1%;
+
+            .quantity_control {
+                @include flex.flex_column;
+                text-transform: capitalize;
+                height: 60%;
+
+                & section {
+                    width: 100%;
+                    height: 80%;
+                    @include flex.flex_row;
+                    margin: 1% 0;
+                    button {
+                        width: 20px;
+                        height: 20px;
+                        border: 0;
+                        border-radius: 2px;
+                        color: bg.$neutral_color;
+                        background-color: bg.$primary_color;
+                        font-size: 1.04em;
+                    }
+
+                    h4 {
+                        margin: 0 5px;
+                    }
+                }
+            }
+            .price_display{
+                height:39%;
+                text-transform: capitalize;
+            }
+        }
+
+        & .btn_holder {
+            height: 28%;
+            width: 100%;
+
+            @include flex.flex_row {
+                justify-content: space-around;
+            }
+
+            button {
+                border: 0;
+                @include btn.btn_style;
+                font-size: .7em;
+                width: 48%;
+                height: 85%;
+                // text-align: left;
+                padding: 0;
+
+            }
+        }
+
+    }
+}
