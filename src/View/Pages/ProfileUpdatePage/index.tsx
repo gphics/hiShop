@@ -96,6 +96,7 @@ function ProfileUpdatePage() {
   async function uploadImage() {
     const { data, error } = await hiShopSupabase.storage
       .from("user")
+      // @ts-ignore
       .update(userImgName, fileState);
     if (data) return data;
   }

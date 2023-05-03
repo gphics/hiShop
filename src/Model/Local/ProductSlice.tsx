@@ -174,8 +174,7 @@ export const AddToCart = createAsyncThunk(
       // @ts-ignore
       thunkAPI.dispatch(setIsLoading(false));
       // @ts-ignore
-      thunkAPI.dispatch(
-        refillUser({ user: data, msg: "product added successfully" })
+      thunkAPI.dispatch( refillUser({ user: data, msg: "product added successfully" })
       );
       return data;
     }

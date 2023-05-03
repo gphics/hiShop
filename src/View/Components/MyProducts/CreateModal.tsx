@@ -8,11 +8,7 @@ import {
   MdProductionQuantityLimits,
 } from "react-icons/md";
 // @ts-ignore
-function CreateModal({
-  createProductSubmitHandler,
-  createProductOnchangeHandler,
-  fileHandler,
-}) {
+function CreateModal({ createProductSubmitHandler, createProductOnchangeHandler, fileHandler}) {
   const { Input } = viewUtils;
   const [currentForm, setCurrentForm] = useState(1);
   // Setting the current form displayed to be  1 initially

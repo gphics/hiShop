@@ -152,8 +152,7 @@ export const MakeTransaction = createAsyncThunk(
           thunkAPI.dispatch(CompleteTransaction(item));
         });
         // @ts-ignore
-        thunkAPI.dispatch(
-          refillUser({ user: firstData, msg: "product acquired successfully" })
+        thunkAPI.dispatch( refillUser({ user: firstData, msg: "product acquired successfully" })
         );
         return secondData;
       }
