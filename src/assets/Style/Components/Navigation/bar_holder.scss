@@ -11,11 +11,24 @@
     position: fixed;
     box-shadow: 1px 1px 10px #EFEFEF;
     z-index: 9;
-
     @include flex.flex_row {
         justify-content: space-between;
         padding: 0 3%;
         align-items: center;
+    }
+
+    .cart_link {
+        color: white;
+        text-decoration: none;
+        position: relative;
+        @include flex.flex_column;
+
+        h6 {
+            position: absolute;
+            z-index: 999;
+            top: -80%;
+            left: 30%
+        }
     }
 
     .cart_btn,

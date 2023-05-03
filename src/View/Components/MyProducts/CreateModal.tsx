@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import viewUtils from "../../Utils";
 import { useSelector } from "react-redux";
 import { toggleCreateModal } from "../../../Controller/Toggling/toggleCreateModal";
@@ -15,6 +15,10 @@ function CreateModal({
 }) {
   const { Input } = viewUtils;
   const [currentForm, setCurrentForm] = useState(1);
+  // Setting the current form displayed to be  1 initially
+  useEffect(() => {
+    setCurrentForm(1)
+  },[])
   const {
     defaultSlice: { isLoading },
     productSlice: {
@@ -127,7 +131,9 @@ function CreateModal({
               <button
                 type="button"
                 className="btn"
-                onClick={createProductSubmitHandler}
+                onClick={
+                    createProductSubmitHandler
+                }
               >
                 submit
               </button>

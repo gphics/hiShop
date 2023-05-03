@@ -1,0 +1,224 @@
+@use "../../Utils/color.scss" as bg;;
+@use "../../Utils/flex.scss" as flex;
+@use "../../Utils/button.scss" as btn;
+@import "./Checkout/main.scss";
+.cart_component {
+    width: 30%;
+    flex: 1 1 auto;
+    overflow-y: scroll;
+    @include flex.flex_column;
+
+
+    & main {
+        margin-top: 80px;
+    }
+    .empty_cart_notice{
+        color:red;
+        margin: 20%;
+        width:60%;
+        text-align: center;
+    }
+
+}
+
+// all dealwith listing the cart items
+.cart_listing {
+
+    width: 100%;
+    margin: 5px 0;
+    @include flex.flex_column;
+
+    // cart item list holder
+    .listing {
+        width: 100%;
+        margin: 5px 0;
+
+        @include flex.flex_column {
+            align-items: center
+        }
+
+        ;
+
+
+    }
+
+
+}
+
+.each_cart_list {
+    width: 98%;
+    height: 150px;
+    background-color: white;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0px 1px 2px bg.$primary_color;
+
+    @include flex.flex_row {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    @media (max-width:600px) {
+        width: 90%;
+
+        flex-direction: column;
+        height: 250px;
+        justify-content: start;
+        align-items: flex-start;
+
+        .cart_item_link {
+
+            width: 100%;
+            height: 70%;
+
+        }
+
+        .cart_item_rest_info {
+            height: 29%;
+            margin: 1% 0 0 0;
+            width: 100%;
+
+            button {
+                height: 40%;
+                width: 28%
+            }
+
+            .remove_btn {
+                width: 10%
+            }
+        }
+    }
+
+    &:hover {
+        transform: scale(1.01);
+
+    }
+
+
+}
+
+.cart_item_link {
+    height: 100%;
+    width: 40%;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: bg.$primary_color;
+    overflow: hidden;
+
+    @include flex.flex_row {
+        justify-content: space-around;
+        align-items: center;
+    }
+
+
+
+    img {
+        border-radius: 100%;
+        width: 120px;
+        height: 120px;
+        box-shadow: 1px 1px 5px black;
+        margin-right: 2%;
+
+    }
+
+    h4 {
+        height: max-content;
+        overflow: hidden;
+        font-size: .9em;
+
+    }
+}
+
+.cart_item_rest_info {
+    background-color: bg.$accent_color;
+    width: 59%;
+    margin-left: 1%;
+    height: 100%;
+
+    @include flex.flex_row {
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    ;
+
+    .control_holder {
+        width: 30%;
+        height: 100%;
+
+        @include flex.flex_row {
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .increase_btn {
+            background-color: green;
+            font-size: 1.5em;
+        }
+
+        .decrease_btn {
+            background-color: hotpink;
+            font-size: 1.5em;
+        }
+
+        ;
+    }
+
+    button {
+        @include btn.btn_style;
+        width: 20%;
+        padding: 0;
+        border: 0;
+        height: 20%;
+    }
+
+    .remove_btn {
+        width: 6%;
+        background-color: red;
+    }
+
+}
+
+// deals with cart total price
+.cart_total_price {
+    width: 98%;
+    margin: 5px 0;
+    text-transform: capitalize;
+
+
+    h4 {
+        width: 100%;
+        height: 50px;
+        text-align: end;
+        padding-right: 1%;
+
+        span {
+            font-size: 1.8em;
+        }
+    }
+
+    & div {
+        width: 100%;
+
+        @include flex.flex_row {
+            justify-content: flex-end;
+        }
+
+        & .btn {
+            @include btn.btn_style;
+            padding: 0;
+            width: 30%;
+            height: 40px;
+            border: 0;
+            margin-right: 2%;
+        }
+
+
+    }
+
+}
+
+
+
+
+

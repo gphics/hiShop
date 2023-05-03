@@ -5,15 +5,18 @@ import { fetchSingleProducts } from "../../../Model/Local/ProductSlice";
 import myProductsComponents from "../../Components/MyProducts";
 import BarHolder from "../../Components/Navigation/BarHolder";
 import { AddToCart } from "../../../Model/Local/ProductSlice";
+import { productSliceActions } from "../../../Model/Local/ProductSlice";
 import ReviewsComponent from "../../Components/MyProducts/Reviews";
-function SingleProduct() {
+function SingleMyProduct() {
   function Increase(e: any): void {
     setQuantityState((prev) => (prev < quantity ? prev + 1 : prev));
   }
   function Decrease(e: any): void {
     setQuantityState((prev) => (prev !== 1 ? prev - 1 : prev));
   }
+  const { setSingleProductMain } = productSliceActions;
   const [infoShow, setInfoShow] = useState(0);
+  const [purchasedState, setPurchasedState] = useState(false);
   const { id } = useParams();
   const dispatch = useDispatch();
   const { Gallery, ProductsInfo, SellerInfo } = myProductsComponents;
@@ -31,13 +34,13 @@ function SingleProduct() {
     price,
     quantity,
     productsImageName,
-    created_at,
+    created_at
   } = main;
 
   const [quantityState, setQuantityState] = useState(1);
   function productToCart() {
     // if the cart is empty
-    if (myCart === null || myCart.length === 0) {
+    if (myCart !== null && myCart.length === 0) {
       //  @ts-ignore
       dispatch(AddToCart([{ ...main, quantity: quantityState }]));
       return;
@@ -59,20 +62,27 @@ function SingleProduct() {
   }
   // fetching the product
   useEffect(() => {
-    // if (purchasedProducts.length !== 0) {
-    //   const obj = purchasedProducts.filter((item: any) => item.id === id)
-    //   if (obj.length !== 0) {
-    //     dispatch(setSingleProductMain(obj[0]))
-    //     return;
-    //   }
-    // }
+    if (purchasedProducts && purchasedProducts.length !== 0) {
+      const obj = purchasedProducts.filter((item: any) => item.id === id);
+      if (obj.length !== 0) {
+      
+        dispatch(setSingleProductMain(obj[0]));
+        setPurchasedState(true);
+        return;
+      }
+    }
     // @ts-ignore
     dispatch(fetchSingleProducts(id));
   }, []);
-
+ 
   // for updating the quantity if the product already exist in the cart
   useEffect(() => {
+    // setting the quantity to default
     setQuantityState(1);
+    // updating the quantity since i bought the product already
+    if (purchasedState) {
+      setQuantityState(quantity);
+    }
     // updating the quantity since the product already exist in the cart
 
     if (myCart !== null && myCart.length !== 0) {
@@ -84,7 +94,7 @@ function SingleProduct() {
         setQuantityState(realQuantity);
       }
     }
-  }, [main]);
+  }, [main, purchasedState]);
   const productObj = {
     Increase,
     productToCart,
@@ -98,9 +108,10 @@ function SingleProduct() {
     price,
     productsImageName,
     created_at,
-    id: productId,
+    purchasedState,
+    id:productId
   };
-
+ 
   if (!name) return <h5></h5>;
   return (
     <div className="single_product">
@@ -144,4 +155,4 @@ function SingleProduct() {
   );
 }
 
-export default SingleProduct;
+export default SingleMyProduct;

@@ -8,16 +8,23 @@ import { IoMdLogOut } from "react-icons/io";
 import { FaLuggageCart } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { userSliceActions } from "../../../Model/Local/UserSlice";
-
+import { productSliceActions } from "../../../Model/Local/ProductSlice";
+import { defaultSliceActions } from "../../../Model/Local/DefaultSlice";
+import { transactionSliceActions } from "../../../Model/Local/TransactionSlice";
+import { reviewSliceActions } from "../../../Model/Local/ReviewSlice";
 function PrimaryNav() {
   const { logOutUser } = userSliceActions;
+  const { setProductDefault } = productSliceActions;
+  const { setDefault } = defaultSliceActions;
+  const { setTransactionDefault } = transactionSliceActions;
+  const { setReviewDefault } = reviewSliceActions;
   const dispatch = useDispatch();
   const { MainLink } = viewUtils;
   // @ts-ignore
   const {
     user: { userImgName, firstname },
-  } = useSelector((state:any) => state.userSlice);
-  const date = new Date().getMilliseconds()
+  } = useSelector((state: any) => state.userSlice);
+  const date = new Date().getMilliseconds();
   const imgUrl = `https://dhkiodtlpiwxnmsbcepb.supabase.co/storage/v1/object/public/user/${userImgName}?t=${date}`;
   type obj = {
     name: string;
@@ -39,6 +46,10 @@ function PrimaryNav() {
   function logoutHandler(): void {
     onClickHandler();
     dispatch(logOutUser());
+    dispatch(setProductDefault());
+    dispatch(setReviewDefault());
+    dispatch(setTransactionDefault());
+    dispatch(setDefault());
   }
   return (
     <nav className="primary_nav hide_primary_nav">

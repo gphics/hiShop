@@ -1,0 +1,119 @@
+@use "../Utils/button.scss" as btn;
+@use "../Utils/color.scss" as bg;
+@use "../Utils/flex.scss" as flex;
+
+.transaction_page {
+
+    width: 30%;
+    flex: 1 1 auto;
+    @include flex.flex_column;
+}
+
+.transaction_page_main {
+    width: 100%;
+    margin-top: 80px;
+    flex: 0 0 auto;
+    @include flex.flex_column;
+
+    // page purpose heading note
+    .page_for {
+        text-transform: capitalize;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.transaction_listing {
+    @include flex.flex_column;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.each_transaction {
+    width: 98%;
+    align-self: center;
+    background-color: #EFEFEF;
+    height: calc(max-content + 10px);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px 0;
+
+    .section_name {
+        text-decoration: underline;
+        text-decoration-color: bg.$accent_color;
+        text-decoration-thickness: 3px;
+        text-transform: capitalize;
+        font-size: .9em;
+    }
+
+    & header {
+        width: 100%;
+        text-transform: capitalize;
+        margin: 0 0 5px 0;
+    }
+
+    & .purchased_products {
+        @include flex.flex_column;
+        width: 100%;
+        margin: 5px 0;
+
+        .each {
+            @include flex.flex_row {
+                justify-content: space-between
+            }
+
+            ;
+            width: 100%;
+            margin:2px 0;
+
+            a {
+                color: bg.$primary_color;
+                text-decoration-color: bg.$accent_color;
+                font-size: .8em;
+                text-decoration-thickness: 3px;
+            }
+
+            .each_name {
+            flex:1 1 auto;
+            margin-right:2%;
+            overflow: hidden;
+
+            }
+
+            .first {
+                text-decoration: underline;
+                text-decoration-color: bg.$accent_color;
+                text-decoration-thickness: 3px;
+                
+            }
+
+            .others {
+                flex: 0 0 auto;
+                width: 15%;
+
+            }
+
+        }
+    }
+
+    & article {
+        width: 100%;
+
+        p {
+            margin: 5px 0;
+            width: 100%;
+            font-size: .7em;
+
+            &::first-letter {
+                text-transform: capitalize;
+            }
+        }
+    }
+}
+
+.empty_transaction_note{
+    color:red;
+    text-transform: capitalize;
+    align-self: center;
+    margin:15%
+}

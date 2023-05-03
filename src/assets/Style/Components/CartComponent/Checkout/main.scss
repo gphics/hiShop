@@ -1,0 +1,38 @@
+@use "../../../Utils/color.scss" as bg;
+@use "../../../Utils/flex.scss" as flex;
+@use "../../../Utils/button.scss" as btn;
+@import "./card.scss";
+@import "./form.scss";
+@import "./info.scss";
+
+// checkout style
+.main_cart_checkout {
+    background-color: #9b9797bd;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    z-index: 99999;
+    left: 0;
+
+    @include flex.flex_row {
+        justify-content: center;
+        align-items: center
+    }
+
+    ;
+
+    & .checkout_container {
+        position: absolute;
+        top: -40px;
+        width: 95%;
+        height: 90%;
+        background-color: bg.$neutral_color;
+        box-shadow: 0px 0px 15px 2px;
+        border-radius: 5px;
+        overflow-y: scroll;
+        flex: 0 0 auto;
+
+        @include flex.flex_column
+    }
+}

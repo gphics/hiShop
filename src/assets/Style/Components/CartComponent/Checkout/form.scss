@@ -1,0 +1,70 @@
+@use "../../../Utils/color.scss" as bg;
+@use "../../../Utils/flex.scss" as flex;
+@use "../../../Utils/button.scss" as btn;
+
+.product_checkout_form {
+    flex: 0 0 auto;
+    width: 90%;
+    margin: 5px auto;
+
+    @include flex.flex_column {
+        justify-content: space-between
+    }
+
+    ;
+
+    & header {
+        width: 100%;
+        height: 50px;
+
+        @include flex.flex_row {
+            justify-content: center;
+            align-items: center;
+        }
+
+        h3 {
+            width: max-content;
+            background-color: bg.$accent_color;
+            margin: 5px 0;
+            text-align: center;
+            padding: 5px 10px;
+        }
+    }
+
+
+    & .form_info {
+        margin: 5px 0;
+        width: 100%;
+        @include flex.flex_column{
+            align-items: center
+        };
+
+        & label{
+            width:50%;
+        }
+        & input {
+      
+            width:50%;
+            height: 50px;
+            margin: 10px 0;
+            padding: 0;
+            @include btn.btn_style;
+            cursor:text;
+            border: 0;
+            background-color: hotpink
+        }
+
+        & button {
+            @include btn.btn_style;
+            height: 50px;
+            border: 0;
+            width:40%
+        }
+    }
+
+}
+.incorrectPin{
+    background-color: red;
+    text-align: center;
+    height: 50px;
+}

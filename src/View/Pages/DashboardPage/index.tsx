@@ -37,7 +37,7 @@ function DashboardPage() {
     const products = allProductsCopy.filter((item: any) => {
       if( item.name.toLowerCase().includes(value.toLowerCase())) return item
     }
-     
+      
     );
     // @ts-ignore
     dispatch(filterProduct({ name, value, type: "allProducts", products }));

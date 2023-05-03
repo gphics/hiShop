@@ -10,6 +10,9 @@ const main = createSlice({
         }, 
         setIsLoading: (state: any, action: any) => {
             state.isLoading = action.payload
+        },
+        setDefault: (state: any) => {
+            state.isLoading = false
         }
     }
 })

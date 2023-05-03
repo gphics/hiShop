@@ -7,7 +7,7 @@ import hiShopSupabase from "../Remote/hiShop";
 import sessionStorageFunctions from "../../Controller/sessionStorageFunctions";
 
 //
-const { toggleIsLoading } = defaultSliceActions;
+const { toggleIsLoading, setIsLoading } = defaultSliceActions;
 const { SetItem, DeleteItem } = sessionStorageFunctions;
 
 // user registration
@@ -66,6 +66,7 @@ export const UserProfileUpdate = createAsyncThunk(
     }
   }
 );
+
 // @ts-ignore
 const storedData = JSON.parse(sessionStorage.getItem("hiShopUser"));
 const initialState: user = {
@@ -85,8 +86,6 @@ const initialState: user = {
     email: "",
     password: "",
   },
-  myCart: [],
-  purchasedProducts: [],
 };
 const main = createSlice({
   name: "userSlice",
@@ -98,22 +97,32 @@ const main = createSlice({
     },
     logOutUser: (state) => {
       DeleteItem("hiShopUser");
-      state.isAuthenticated = false;
-      state.user = {
-        firstname: "",
-        lastname: "",
-        password: "",
-        email: "",
-        contact: "",
-        shopName: "",
-        hiPayAccount: "",
-        location: "",
-        userImgName: "",
+      return {
+        isAuthenticated: false,
+        user: {
+          firstname: "",
+          lastname: "",
+          password: "",
+          email: "",
+          contact: "",
+          shopName: "",
+          hiPayAccount: "",
+          location: "",
+          userImgName: "",
+        },
+        login: {
+          email: "",
+          password: "",
+        },
       };
-      state.login = {
-        email: "",
-        password: "",
-      };
+    },
+    refillUser: (state: any, action: any) => {
+      const { msg, user } = action.payload;
+      state.user = user;
+      SetItem("hiShopUser", { user, isAuthenticated: true });
+      toast.success(msg, {
+        position: "top-center",
+      });
     },
   },
   extraReducers: (builder) =>

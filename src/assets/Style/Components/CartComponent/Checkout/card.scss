@@ -1,0 +1,82 @@
+@use "../../../Utils/color.scss" as bg;
+@use "../../../Utils/flex.scss" as flex;
+@use "../../../Utils/button.scss" as btn;
+
+.checkout_card_details {
+    @include flex.flex_column {
+        justify-content: space-around
+    }
+
+    ;
+    flex: 0 0 auto;
+    width: 90%;
+    height: 300px;
+    margin:5px auto;
+
+    & header {
+        width: 100%;
+        height: 50px;
+
+        @include flex.flex_row {
+            align-items: center;
+            justify-content: center
+        }
+
+        ;
+
+        h3 {
+            text-transform: capitalize;
+            padding: 5px 10px;
+            text-align: center;
+            background-color: bg.$accent_color;
+            width: max-content;
+
+        }
+    }
+
+
+    & .card {
+        width: 95%;
+        height: 80%;
+        background-color: bg.$accent_color;
+        margin: 5px 0;
+        border-radius: 5px;
+        padding: 5px;
+
+        @include flex.flex_column {
+            justify-content: space-between;
+        }
+
+        @media(max-width:600px) {
+            width: 100%
+        }
+
+        .part_a {
+            width: 100%;
+            height: 50%;
+            overflow: hidden;
+
+            @include flex.flex_row {
+                justify-content: space-between;
+            }
+
+            img {
+                width: 35%;
+                height: 25%;
+                transform: translateX(35%);
+            }
+        }
+
+        .part_b {
+            @include flex.flex_column;
+            height: 45%;
+            justify-content: flex-end;
+        }
+    }
+}
+.card_details_loading_notification{
+    align-self:center;
+    width:calc(max-content + 5px);
+    text-align: center;
+    background-color: bg.$accent_color;
+}

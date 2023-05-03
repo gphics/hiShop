@@ -13,6 +13,9 @@ import Transactions from "./View/Pages/TransactionsPage/Transactions";
 import MyProductsPage from "./View/Pages/MyProducts/MyProductsPage";
 import SharedLayout from "./View/Utils/SharedLayout";
 import SingleProduct from "./View/Pages/SingleProduct/SingleProduct";
+import SingleMyProduct from "./View/Pages/SingleProduct/SingleMyProduct";
+import SellerProfile from "./View/Pages/ProfilePage/SellerProfile";
+import ProductUpdate from "./View/Pages/ProductUpdate/ProductUpdate";
 function App() {
   const { HomeSharedLayout, DashboardSharedLayout } = viewUtils;
   const { LoginPage, RegisterPage } = AuthenticationPage;
@@ -36,8 +39,17 @@ function App() {
             <Route path="profile" element={<ProfilePage />} />
             <Route path="transactions" element={<Transactions />} />
             <Route path="myproducts" element={<MyProductsPage />} />
-            <Route path="singleproduct" element={<SharedLayout/>} >
-            <Route path=":id" element={<SingleProduct/>} />
+            <Route path="singleproduct" element={<SharedLayout />}>
+              <Route path=":id" element={<SingleProduct />} />
+            </Route>
+            <Route path="singlemyproduct" element={<SharedLayout />}>
+              <Route path=":id" element={<SingleMyProduct />} />
+            </Route>
+            <Route path="sellerprofile" element={<SharedLayout />}>
+              <Route path=":id" element={<SellerProfile />} />
+            </Route>
+            <Route path="productupdate" element={<SharedLayout />}>
+              <Route path=":productId" element={<ProductUpdate />} />
             </Route>
           </Route>
           {/* LANDING && AUTHENTICATION ROUTE */}

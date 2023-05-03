@@ -41,16 +41,18 @@ function Gallery({ img }) {
           );
         })}
       </section>
-      <section className="img_control">
-        <button onClick={Decrease} type="button">
-          {" "}
-          {"<"}{" "}
-        </button>
-        <button onClick={Increase} type="button">
-          {" "}
-          {">"}{" "}
-        </button>
-      </section>
+      {img.length > 1 &&
+        <section className="img_control">
+          <button onClick={Decrease} type="button">
+            {" "}
+            {"<"}{" "}
+          </button>
+          <button onClick={Increase} type="button">
+            {" "}
+            {">"}{" "}
+          </button>
+        </section>
+      }
     </div>
   );
 }

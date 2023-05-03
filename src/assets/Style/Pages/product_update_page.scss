@@ -1,0 +1,160 @@
+@use "../Utils/button.scss" as btn;
+@use "../Utils/color.scss" as bg;
+@use "../Utils/flex.scss" as flex;
+
+.product_update_page {
+    flex: 1 1 auto;
+    width: 50%;
+    height: 100%;
+
+    @include flex.flex_column;
+
+}
+
+// section for showing whcih form is meant to be shown
+// it contains buttons
+
+.product_update_type {
+    flex: 1 1 auto;
+    height: 100%;
+    width: 100%;
+}
+
+.product_update_btn_section {
+    height: 100%;
+    flex: 1 1 auto;
+    margin-top: 80px;
+
+    @include flex.flex_column {
+        align-items: center;
+        justify-content: center;
+    }
+
+    button {
+        @include btn.btn_style;
+        border: 0;
+
+        margin: 10px 0;
+    }
+
+    h5 {
+        background-color: bg.$accent_color;
+        padding: 5px;
+        text-transform: capitalize;
+    }
+}
+
+// second part of the form 
+// it involves showing the images
+.second_product_update_form_holder {
+    transform: translate(-100vw);
+    opacity: 0;
+
+    @include flex.flex_row {
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.second_product_update_form {
+    background-color: bg.$accent_color;
+    width: 95%;
+    height: 90%;
+    border-radius: 5px;
+    overflow: hidden;
+    @include flex.flex_column {
+        align-items: center;
+        justify-content: center;
+        justify-content: space-evenly
+    }
+
+    .add_new_img_btn {
+        @include btn.btn_style;
+        margin: 5px 0;
+        border: 0;
+        background-color: hotpink;
+        &:hover{
+        background-color: hotpink;
+        }
+    }
+
+    .product_update_input_holder {
+
+        @include flex.flex_column {
+            align-items: center;
+            justify-content: space-around
+        }
+
+        ;
+        height: 25%;
+        width:70%;
+        text-transform: capitalize;
+        background-color: #EFEFEF;
+        margin:5px 0;
+        input {
+            margin: 5px 0;
+            width: 50%;
+        }
+
+        label {
+            width: 100%;
+            text-align: center
+        }
+
+        button {
+            @include btn.btn-style;
+            border: 0;
+            width: 50%;
+            margin: 5px 0;
+            text-align: center;
+            padding:0;
+            height: 40px;
+        }
+    }
+
+    .all_image_list {
+        width: 98%;
+        margin: 10px 0 0 0;
+        height: clamp(50%, max-content, 60%);
+        overflow: hidden;
+        // flex: 1 1 auto;
+        @include flex.flex_row {
+            flex-wrap: wrap;
+            // justify-content: space-between;
+        }
+
+        .each_img_list {
+            margin: 5px;
+            flex: 0 0 auto;
+            width: 100px;
+            height: 100px;
+            border-radius: 5px;
+            overflow: hidden;
+            &:hover {
+                transform: scale(1.05);
+                cursor: pointer;
+            }
+            @media (max-width:600px){
+                height:70px;
+                width:70px
+            }
+        }
+
+        .current_img {
+            border: 3px solid bg.$primary_color;
+            transform: scale(1.05);
+        }
+    }
+}
+
+// visibility class
+.show_second_update_form {
+    position: fixed;
+    z-index: 99999;
+    background-color: #979797ce;
+    width: 100vw;
+    height: 100vh;
+    opacity: 1;
+    transform: translate(0);
+
+}

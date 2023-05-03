@@ -3,6 +3,7 @@ import BarHolder from "../../Components/Navigation/BarHolder";
 import myProductsComponents from "../../Components/MyProducts";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { ManualCreateModalToggling } from "../../../Controller/Toggling/toggleCreateModal";
 import {
   createProductRemote,
   fetchMyProducts,
@@ -10,6 +11,7 @@ import {
 } from "../../../Model/Local/ProductSlice";
 import hiShopSupabase from "../../../Model/Remote/hiShop";
 import { defaultSliceActions } from "../../../Model/Local/DefaultSlice";
+
 function MyProductsPage() {
   const [fileState, setFileState] = useState([]);
   const dispatch = useDispatch();
@@ -22,7 +24,7 @@ function MyProductsPage() {
       myProducts,
       myProductsCopy,
     },
-    userSlice: { purchasedProducts },
+    userSlice: { user: { purchasedProducts } },
   } = useSelector((state: any) => state);
   const {
     filterProduct,
@@ -78,6 +80,10 @@ function MyProductsPage() {
       alert("Input field can't be empty");
       return;
     }
+      setTimeout(() => {
+        // @ts-ignore
+         ManualCreateModalToggling()
+      }, 2000);
     dispatch(toggleIsLoading());
     if (fileState.length > 0) {
       // uploading all files
@@ -128,7 +134,9 @@ function MyProductsPage() {
     // @ts-ignore
     dispatch(fetchMyProducts());
   }, []);
-  const allMyProducts = [...myProducts, ...purchasedProducts];
+  
+  const allMyProducts = myProducts;
+ 
   return (
     <div className="my_products_page">
       <BarHolder />
@@ -139,13 +147,15 @@ function MyProductsPage() {
         {/* product create modal component */}
         <CreateModal {...createModalObj} />
         {/* all Products */}
+      
         <section className="products_list">
-          {allMyProducts && allMyProducts.length === 0 ? (
+ 
+          {allMyProducts.length === 0 ? (
             <h3 className="empty_note">You have no product !!</h3>
           ) : (
-            myProducts &&
-            myProducts.map((item: any, index: number) => (
-              <EachProductList {...item} key={index + 5656} />
+
+            allMyProducts .map((item: any, index: number) => (
+              <EachProductList url="singlemyproduct" {...item} key={index + 5656} />
             ))
           )}
         </section>

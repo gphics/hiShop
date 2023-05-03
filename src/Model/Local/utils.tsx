@@ -15,33 +15,32 @@ export interface user {
   login: {
     email: string;
     password: string;
-  };
-  purchasedProducts: [];
-  myCart: [];
+  }
 }
 export type eachReview = {
-  img: string;
-  id: string;
   creatorName: string;
   body: string;
   creatorImgName: string;
   created_at?: string;
 };
 export interface review {
-  productId: string;
   main: eachReview;
-  allReviews: eachReview[];
+  productReviews: eachReview[];
   created_at?: string;
 }
 
 export interface transaction {
-  productId: string;
-  seller: string;
-  buyer: string;
-  price: number | string;
-  quantity: number | string;
-  id: string;
-  created_at?: string;
+  main: {
+    id: string;
+    info: {}[];
+    buyer: string;
+    created_at?: string;
+    totalPrice: number;
+    totalQuantity: number;
+    remarks: string;
+    productsImageName:string[];
+  };
+  myTransactions: [];
 }
 
 export type eachProduct = {
@@ -53,6 +52,7 @@ export type eachProduct = {
   owner: string;
   id: string;
   created_at?: string;
+  productOwnerObj: {};
 };
 export interface product {
   main: eachProduct;

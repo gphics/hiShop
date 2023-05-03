@@ -1,0 +1,61 @@
+@use "../../../Utils/color.scss" as bg;
+@use "../../../Utils/flex.scss" as flex;
+@use "../../../Utils/button.scss" as btn;
+
+#checkout_product_info {
+    flex: 0 0 auto;
+    width: 90%;
+    margin: 5px auto;
+    text-transform: capitalize;
+    @include flex.flex_column;
+
+    & header {
+            width: 100%;
+            height: 50px;
+    
+            @include flex.flex_row {
+                align-items: center;
+                justify-content: center
+            }
+    
+            ;
+    
+            h3 {
+                text-transform: capitalize;
+                padding: 5px 10px;
+                text-align: center;
+                background-color: bg.$accent_color;
+                width: max-content;
+    
+            }
+        }
+
+    .item_list {
+        width: 100%;
+        @include flex.flex_column;
+        margin: 5px 0;
+
+        & .list_info {
+            width: 100%;
+            height: 30px;
+            margin: 5px 0;
+
+            @include flex.flex_row {
+                justify-content: space-between
+            }
+
+            h5,
+            h6 {
+                width: 25%;
+                flex: 1 1 auto;
+            }
+
+            & .name_holder {
+                width: 50%;
+
+            }
+
+            ;
+        }
+    }
+}
