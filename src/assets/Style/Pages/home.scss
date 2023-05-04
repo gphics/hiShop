@@ -11,6 +11,7 @@
     @include flex.flex_column;
     background-color: bg.$neutral_color;
     overflow-x: hidden;
+
 } 
 
 .home_page{
@@ -18,4 +19,5 @@
     margin-top:70px;
     @include flex.flex_column;
         overflow: hidden;
+
 }

@@ -5,7 +5,7 @@
 .my_products_page {
     flex: 1 1 auto;
     @include flex.flex_column;
-
+width:40%;
     main {
         width: 100%;
         margin-top: 80px;
